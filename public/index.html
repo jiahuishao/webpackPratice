@@ -8,7 +8,16 @@
 <body>
 <div id='root'>
 </div>
-<div id="test">{{ message }}
+<div id="test">
+    {{ message }}
+</div>
+<div id="vfor">
+    <div v-for="food in foods">
+        <shaojiahui a=this.food.name></shaojiahui>
+    </div>
+</div>
+<div id="fp">
+<father></father>
 </div>
 <script src="bundle.js"></script>
 </body>

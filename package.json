@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack"
+    "start": "webpack",
+    "server": "webpack-dev-server --open"
   },
   "author": "shaojiahui",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "vue-loader": "^15.6.4",
     "vue-template-compiler": "^2.6.6",
     "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.0"
   }
 }

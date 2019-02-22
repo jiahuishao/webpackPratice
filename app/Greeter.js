@@ -4,3 +4,4 @@ module.exports = function() {
     greet.textContent = "Hi there and greetings!";
     return greet;
 };
+
