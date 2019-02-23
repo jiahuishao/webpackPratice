@@ -74,3 +74,48 @@ var fp = new Vue({
         'father':father
     }
 })
+
+const obj = [
+    {name:'shaojiahui',age:23},
+    {name:'shaojiahui2',age:24},
+]
+
+for(const [index,{name,age}] of obj.entries()){
+    console.log(`${name} , ${age} , ${index}`);
+}
+
+// const a = 12
+// console.log(`a123`);
+// console.log(`${a}123`);
+// const b = a => (a*a);
+// console.log(b(2));
+
+let array=['a','bc','def','ghij'];
+// array=array.filter(item=>item.length>=2);
+// array = array.filter(function (a) {
+//     console.log(a.length)
+// });
+
+// array = array.filter(a=>a.length>=2);
+// console.log(array);
+const abc = array.sort(function (a,b) {
+    a.length < b.length;
+})
+console.log(abc);
+array = array.sort((a,b)=>a.length<b.length);
+console.log(array);
+
+function returnobj() {
+    return {
+        res:0
+    }
+}
+
+// const {a,b:{c}} = {a:1,b:{c:2}};
+// console.log(c);
+
+const testfun = (a=4)=>(a*a);
+const val = testfun();
+console.log(val);
+
+const map = new map();
