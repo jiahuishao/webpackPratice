@@ -3,6 +3,7 @@ import Vue from 'vue'
 
 const greeter = require('./Greeter.js');
 const data = require('./data.json');
+const dataNum = require('./testJs.js')
 
 document.querySelector("#root").appendChild(greeter());
 
@@ -91,6 +92,7 @@ for(const [index,{name,age}] of obj.entries()){
 // console.log(b(2));
 
 let array=['a','bc','def','ghij'];
+let num=[1,2,3,4,5];
 // array=array.filter(item=>item.length>=2);
 // array = array.filter(function (a) {
 //     console.log(a.length)
@@ -116,6 +118,71 @@ function returnobj() {
 
 const testfun = (a=4)=>(a*a);
 const val = testfun();
-console.log(val);
 
-const map = new map();
+const map = new Map();
+const set = new Set();
+
+set.add(array);
+set.add(num);
+console.log(set);
+console.log(set.has(num));
+// set.forEach(items=>items.forEach((a)=>{a++;console.log(a)}));
+set.delete(array);
+console.log(set);
+set.clear();
+console.log(set);
+
+map.set(1,'aaaaa');
+map.set(2,'bbbbb');
+map.set(3,'ccccc');
+
+console.log(map.entries());
+console.log(map.keys());
+for(let item of map.keys()){
+    console.log(item);
+}
+// console.log(map.values());
+// console.log(map.size);
+for(let [key,value] of map){
+    console.log(`${key}&${value}`);
+}
+
+map.forEach((key,value,map)=>{console.log(key);console.log(value);console.log(map)});
+
+class math {
+    constructor(a,b,c){
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    add(){
+        return this.a*this.a;
+    }
+
+    sum(){
+        return this.a*this.b*this.c;
+    }
+}
+const a = new math(5,7,8);
+console.log(a.add());
+console.log(a.sum());
+
+console.log(dataNum.dataNum);
+
+class mathSon extends math{
+    constructor(a,b,c){
+        super(b,c,a)
+    }
+
+    add(){
+        return this.a*this.a*this.a
+    }
+    addb(){
+        return this.b*this.b*this.b;
+    }
+}
+const mathson = new mathSon(10,2,3);
+console.log(mathson.add());
+console.log(mathson.addb());
+
