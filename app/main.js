@@ -186,3 +186,45 @@ const mathson = new mathSon(10,2,3);
 console.log(mathson.add());
 console.log(mathson.addb());
 
+function async(){
+    var p = new Promise((resolve,reject)=>{
+        const math = Math.ceil(Math.random()*10);
+        if (math >= 5) return resolve(math);
+            else return reject('数字过小1');
+    })
+    return p;
+}
+
+function async2(){
+    var p = new Promise((resolve,reject)=>{
+        const math = Math.ceil(Math.random()*10);
+        if (math >= 5) return resolve(math);
+        else return reject('数字过小2');
+    })
+    return p;
+}
+
+function async3(){
+    var p = new Promise((resolve,reject)=>{
+        const math = Math.ceil(Math.random()*10);
+        if (math >= 5) return resolve(math);
+        else return reject('数字过小3');
+    })
+    return p;
+}
+
+async().then(function (data) {
+    console.log(data);
+},function (data) {
+    console.log(data)
+}).catch(function (data) {
+    console.log(data)
+    console.log('catch');
+})
+
+Promise.all([async(),async2(),async3()])
+    .then(function (data) {
+        console.log(data);
+    }).catch(function (data) {
+        console.log(data);
+    })

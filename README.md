@@ -169,3 +169,47 @@ class Point3D extends Point2D{
     }
 }
 ```
+## Promise
+
+> f().then() 链式执行 当f()执行完以后才会执行then
+
+> .catch(function(reason){}) 类似于try catch   
+
+> Promise.all([f(),f2()]) 同步执行f(),f2(),结果以[result1,result2]形式返回
+
+> Promise.race([f(),f2()]) 同时执行f().f2(),结果按照执行速度依次返回（先执行完毕的先返回）
+```javascript
+function f() {
+  const p = new Promise((resolve,reject)=>{
+      const math = Math.ceil(Math.random()*10);
+      if(math >= 5) return resolve(math);
+        else return reject('数字过小');
+  });
+  return p;
+}
+
+function f2() {
+  const p = new Promise((resolve,reject)=>{
+      const math = Math.ceil(Math.random()*10);
+      if(math >= 5) return resolve(math);
+        else return reject('数字过小');
+  });
+  return p;
+}
+
+f().then(function(data) {
+  console.log(data);
+}).catch(function(reason) {
+  console.log(`error:${reason}`);
+});
+
+Promise.all([f(),f2()])
+    .then(function(data) {
+      console.log(data);
+    });
+    
+Promise.race([f(),f2()])
+    .then(function(data) {
+      console.log(data);
+    });
+```
